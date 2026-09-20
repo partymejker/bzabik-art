@@ -37,7 +37,7 @@
   font-size: .6875rem;
   font-weight: 500;
   letter-spacing: .13em;
-  transition: color 180ms ease;
+  transition: color var(--motion-fast) var(--motion-ease);
 }
 .cv-download span { color: var(--color-cyan-glow); }
 .cv-download:hover, .cv-download:focus-visible { color: var(--color-cyan-glow); }

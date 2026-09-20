@@ -29,7 +29,7 @@
   letter-spacing: -.02em;
   color: var(--color-text-primary);
   word-break: break-word;
-  transition: color 180ms ease;
+  transition: color var(--motion-fast) var(--motion-ease);
 }
 .contact-email:hover, .contact-email:focus-visible { color: var(--color-cyan-glow); }
 

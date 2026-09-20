@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ProjectCard } from "@/components/ProjectCard";
+import { Reveal } from "@/components/Reveal";
 import { projects } from "@/lib/projects";
 import { navItems } from "@/lib/navigation";
 import "./work.css";
@@ -32,7 +33,9 @@ export default function WorkPage() {
         <ol>
           {projects.map((project, index) => (
             <li key={project.slug}>
-              <ProjectCard project={project} index={index} />
+              <Reveal>
+                <ProjectCard project={project} index={index} />
+              </Reveal>
             </li>
           ))}
         </ol>

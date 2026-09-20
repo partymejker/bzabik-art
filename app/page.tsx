@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { FeaturedWork } from "@/components/FeaturedWork";
+import { Reveal } from "@/components/Reveal";
 import { navItems } from "@/lib/navigation";
 import { projects } from "@/lib/projects";
 import { HeroVideo } from "./hero-video";
@@ -53,7 +54,9 @@ export default function Home() {
               VIEW ALL <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
-          <FeaturedWork projects={featuredProjects} />
+          <Reveal>
+            <FeaturedWork projects={featuredProjects} />
+          </Reveal>
         </section>
       )}
     </main>

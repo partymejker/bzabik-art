@@ -6,10 +6,11 @@ import { navItems } from "@/lib/navigation";
 
 const FOCUSABLE_SELECTOR = "a[href], button:not([disabled])";
 
-export function SiteNav({ id, onClose }: { id: string; onClose: () => void }) {
+export function SiteNav({ id, isOpen, onClose }: { id: string; isOpen: boolean; onClose: () => void }) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!isOpen) return;
     const panel = panelRef.current;
     if (!panel) return;
 
@@ -39,12 +40,14 @@ export function SiteNav({ id, onClose }: { id: string; onClose: () => void }) {
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
+  }, [isOpen, onClose]);
 
   return (
     <div
       id={id}
       className="nav-overlay"
+      data-open={isOpen}
+      aria-hidden={!isOpen}
       role="dialog"
       aria-modal="true"
       aria-label="Site navigation"

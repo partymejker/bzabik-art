@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ProfileTimeline } from "@/components/ProfileTimeline";
 import { CapabilitiesGrid } from "@/components/CapabilitiesGrid";
+import { Reveal } from "@/components/Reveal";
 import { capabilityGroups, cvPdfUrl, languages, profileIntro, timeline } from "@/lib/profile";
 import { navItems } from "@/lib/navigation";
 import "./profile.css";
@@ -42,29 +43,37 @@ export default function ProfilePage() {
 
       <section className="profile-timeline-section" aria-labelledby="experience-heading">
         <h2 id="experience-heading" className="section-heading">Experience</h2>
-        <ProfileTimeline entries={workEntries} />
+        <Reveal>
+          <ProfileTimeline entries={workEntries} />
+        </Reveal>
       </section>
 
       <section className="profile-timeline-section" aria-labelledby="education-heading">
         <h2 id="education-heading" className="section-heading">Education</h2>
-        <ProfileTimeline entries={educationEntries} />
+        <Reveal>
+          <ProfileTimeline entries={educationEntries} />
+        </Reveal>
       </section>
 
       <section className="profile-capabilities" aria-labelledby="capabilities-heading">
         <h2 id="capabilities-heading" className="section-heading">Capabilities</h2>
-        <CapabilitiesGrid groups={capabilityGroups} />
+        <Reveal>
+          <CapabilitiesGrid groups={capabilityGroups} />
+        </Reveal>
       </section>
 
       <section className="profile-languages" aria-labelledby="languages-heading">
         <h2 id="languages-heading" className="section-heading">Languages</h2>
-        <ul className="languages-list">
-          {languages.map((language) => (
-            <li key={language.name}>
-              <span>{language.name}</span>
-              <span>{language.level}</span>
-            </li>
-          ))}
-        </ul>
+        <Reveal>
+          <ul className="languages-list">
+            {languages.map((language) => (
+              <li key={language.name}>
+                <span>{language.name}</span>
+                <span>{language.level}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       <div className="profile-footer">

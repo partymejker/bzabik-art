@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ProjectMedia } from "@/components/ProjectMedia";
+import { Reveal } from "@/components/Reveal";
 import { projects } from "@/lib/projects";
 import "./project.css";
 
@@ -49,44 +50,48 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
 
       {project.media && project.media.length > 0 && (
         <section className="project-media-section" aria-label="Project media">
-          {project.media.map((item, mediaIndex) => (
-            <ProjectMedia key={`${item.type}-${mediaIndex}`} item={item} />
-          ))}
+          <Reveal className="project-media-reveal">
+            {project.media.map((item, mediaIndex) => (
+              <ProjectMedia key={`${item.type}-${mediaIndex}`} item={item} />
+            ))}
+          </Reveal>
         </section>
       )}
 
       <section className="project-details" aria-label="Project details">
-        <div className="project-description">
-          <h2 className="section-heading">About</h2>
-          <p>{project.description}</p>
-        </div>
+        <Reveal className="project-details-reveal">
+          <div className="project-description">
+            <h2 className="section-heading">About</h2>
+            <p>{project.description}</p>
+          </div>
 
-        <div className="project-meta-columns">
-          {project.credits && project.credits.length > 0 && (
-            <div>
-              <h2 className="section-heading">Credits</h2>
-              <ul className="project-credits">
-                {project.credits.map((credit) => (
-                  <li key={credit.role}>
-                    <span>{credit.role}</span>
-                    <span>{credit.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div className="project-meta-columns">
+            {project.credits && project.credits.length > 0 && (
+              <div>
+                <h2 className="section-heading">Credits</h2>
+                <ul className="project-credits">
+                  {project.credits.map((credit) => (
+                    <li key={credit.role}>
+                      <span>{credit.role}</span>
+                      <span>{credit.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-          {project.tools && project.tools.length > 0 && (
-            <div>
-              <h2 className="section-heading">Tools</h2>
-              <ul className="project-tools">
-                {project.tools.map((tool) => (
-                  <li key={tool}>{tool}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+            {project.tools && project.tools.length > 0 && (
+              <div>
+                <h2 className="section-heading">Tools</h2>
+                <ul className="project-tools">
+                  {project.tools.map((tool) => (
+                    <li key={tool}>{tool}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </Reveal>
       </section>
 
       <nav className="project-nav" aria-label="Other projects">

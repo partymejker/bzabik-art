@@ -38,7 +38,7 @@ export function SiteHeader() {
       >
         <span>{isOpen ? "CLOSE" : "MENU"}</span><i aria-hidden="true" />
       </button>
-      {isOpen && <SiteNav id={navId} onClose={close} />}
+      <SiteNav id={navId} isOpen={isOpen} onClose={close} />
     </header>
   );
 }
