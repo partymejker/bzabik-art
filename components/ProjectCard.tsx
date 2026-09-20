@@ -1,8 +1,9 @@
+import Link from "next/link";
 import type { Project } from "@/lib/types";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="project-card">
+    <Link href={`/work/${project.slug}`} className="project-card">
       <p className="project-card-index">{String(index + 1).padStart(2, "0")}</p>
       <div className="project-card-body">
         <h3 className="project-card-title">{project.title}</h3>
@@ -20,6 +21,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           </ul>
         )}
       </div>
-    </article>
+    </Link>
   );
 }

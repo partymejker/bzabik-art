@@ -35,9 +35,10 @@ export interface ProjectCredit {
 }
 
 export interface ProjectMediaItem {
-  type: "image" | "video" | "embed";
+  type: "image" | "video" | "embed" | "model";
   src: string;
   alt?: string;
+  poster?: string;
 }
 
 export interface Project {
