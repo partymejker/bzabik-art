@@ -32,8 +32,8 @@
   overflow: hidden;
   border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse 100% 90% at 60% 50%, black 10%, transparent 88%);
-  -webkit-mask-image: radial-gradient(ellipse 100% 90% at 60% 50%, black 10%, transparent 88%);
+  mask-image: radial-gradient(ellipse 30% 55% at 65% 72%, black 10%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 30% 55% at 65% 72%, black 10%, transparent 85%);
 }
 
 .hero-video-layer video {
