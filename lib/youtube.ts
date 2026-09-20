@@ -1,4 +1,4 @@
-export function getYouTubeEmbedUrl(url: string): string | null {
+export function getYouTubeVideoId(url: string): string | null {
   let parsed: URL;
   try {
     parsed = new URL(url);
@@ -6,12 +6,22 @@ export function getYouTubeEmbedUrl(url: string): string | null {
     return null;
   }
 
-  let id: string | null = null;
   if (parsed.hostname === "youtu.be") {
-    id = parsed.pathname.slice(1);
-  } else if (parsed.hostname.includes("youtube.com")) {
-    id = parsed.searchParams.get("v");
+    return parsed.pathname.slice(1) || null;
+  }
+  if (parsed.hostname.includes("youtube.com")) {
+    return parsed.searchParams.get("v");
   }
 
+  return null;
+}
+
+export function getYouTubeEmbedUrl(url: string): string | null {
+  const id = getYouTubeVideoId(url);
   return id ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+}
+
+export function getYouTubeThumbnailUrl(url: string): string | null {
+  const id = getYouTubeVideoId(url);
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
 }
