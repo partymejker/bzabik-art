@@ -40,7 +40,7 @@ export const projects: Project[] = [
     credits: [{ role: "Multimedia Specialist", name: "Bartłomiej Żabik" }],
     tools: ["Blender", "Adobe Photoshop", "DaVinci Resolve"],
     tags: ["EdTech", "3D", "Animation"],
-    media: [{ type: "embed", src: "https://youtu.be/_wjEu8NO1z8", alt: "BCU Mielec — 2D/3D animation sample" }],
+    media: [{ type: "model", src: "/3d_models/palnik.glb", alt: "BCU Mielec — 3D model" }],
     featured: true,
   },
   {
@@ -54,6 +54,7 @@ export const projects: Project[] = [
     credits: [{ role: "Content Editor & Multimedia Specialist", name: "Bartłomiej Żabik" }],
     tools: ["Blender", "CSS"],
     tags: ["EdTech", "3D", "Interactive"],
+    media: [{ type: "embed", src: "https://youtu.be/_wjEu8NO1z8", alt: "Kursy Splitting — 2D/3D animation sample" }],
     featured: true,
   },
 ];
