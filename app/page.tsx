@@ -1,3 +1,4 @@
+import { SiteHeader } from "@/components/SiteHeader";
 import { HeroVideo } from "./hero-video";
 
 export default function Home() {
@@ -5,14 +6,7 @@ export default function Home() {
     <main className="archive-shell">
       <div className="archive-grid" aria-hidden="true" />
 
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="BZABIK.ART home">
-          BZABIK<span>.ART</span>
-        </a>
-        <button className="menu-trigger" type="button" aria-label="Menu">
-          <span>MENU</span><i aria-hidden="true" />
-        </button>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="top" aria-labelledby="hero-title">
         <HeroVideo />

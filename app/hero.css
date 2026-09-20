@@ -1,9 +1,10 @@
 /* Atmospheric base for the video-led hero composition. */
+@layer hero {
 .archive-shell {
   background:
-    radial-gradient(ellipse 45% 59% at 83% 76%, rgb(62 27 88 / 20%), transparent 72%),
-    radial-gradient(ellipse 38% 43% at 72% 100%, rgb(89 26 51 / 13%), transparent 76%),
-    radial-gradient(ellipse 36% 52% at 78% 20%, rgb(37 25 57 / 11%), transparent 76%),
+    radial-gradient(ellipse 45% 59% at 83% 76%, rgb(var(--color-violet-deep-rgb) / 20%), transparent 72%),
+    radial-gradient(ellipse 38% 43% at 72% 100%, rgb(var(--color-magenta-muted-rgb) / 13%), transparent 76%),
+    radial-gradient(ellipse 36% 52% at 78% 20%, rgb(var(--color-violet-dark-rgb) / 11%), transparent 76%),
     var(--color-background);
 }
 
@@ -48,7 +49,7 @@
   inset: 0;
   content: "";
   background:
-    radial-gradient(ellipse 58% 70% at 85% 76%, rgb(89 25 67 / 23%), transparent 72%),
+    radial-gradient(ellipse 58% 70% at 85% 76%, rgb(var(--color-burgundy-rgb) / 23%), transparent 72%),
     linear-gradient(90deg, var(--color-background) 0%, rgb(5 7 13 / 91%) 26%, rgb(8 7 18 / 58%) 43%, rgb(18 10 26 / 20%) 65%, rgb(24 10 28 / 7%) 100%);
   pointer-events: none;
 }
@@ -63,7 +64,7 @@
 }
 
 h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
-.hero-accent { color: #e7e6ff; text-shadow: 0 0 3.5rem rgb(105 81 207 / 8%); }
+.hero-accent { color: #e7e6ff; text-shadow: 0 0 3.5rem rgb(var(--color-violet-glow-rgb) / 8%); }
 
 .discipline-line { position: relative; z-index: 4; margin-top: clamp(2rem, 4vw, 4rem); }
 .discipline-line b { color: #6f77bc; }
@@ -88,11 +89,12 @@ h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
   h1 { font-size: clamp(3.75rem, 17vw, 6rem); }
   .hero::after {
     background:
-      radial-gradient(ellipse 75% 54% at 88% 78%, rgb(89 25 67 / 20%), transparent 74%),
+      radial-gradient(ellipse 75% 54% at 88% 78%, rgb(var(--color-burgundy-rgb) / 20%), transparent 74%),
       linear-gradient(90deg, var(--color-background) 0%, rgb(5 7 13 / 82%) 35%, rgb(12 8 20 / 34%) 68%, rgb(24 10 28 / 10%) 100%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-video-layer { display: none; }
+}
 }
