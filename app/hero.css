@@ -32,8 +32,18 @@
   overflow: hidden;
   border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse 30% 55% at 65% 72%, black 10%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse 30% 55% at 65% 72%, black 10%, transparent 85%);
+  mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, black 70%, transparent 100%);
+}
+
+.hero-video-edge {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
+  pointer-events: none;
+  backdrop-filter: blur(28px);
+  mask-image: radial-gradient(ellipse 55% 55% at 50% 50%, transparent 65%, black 80%, transparent 100%);
 }
 
 .hero-video-layer video {
@@ -97,6 +107,6 @@ h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-video-layer { display: none; }
+  .hero-video-layer, .hero-video-edge { display: none; }
 }
 }
