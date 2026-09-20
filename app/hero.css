@@ -17,7 +17,7 @@
   mask-image: linear-gradient(137deg, black 0%, transparent 72%);
 }
 
-.menu-trigger i { background: var(--color-text-secondary); box-shadow: none; }
+.archive-shell:has(.hero) .menu-trigger i { background: var(--color-text-secondary); box-shadow: none; }
 
 .hero {
   position: relative;

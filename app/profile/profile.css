@@ -11,17 +11,6 @@
   gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.profile-index {
-  display: flex;
-  align-items: center;
-  gap: .7rem;
-  color: var(--color-text-secondary);
-  font-size: .6875rem;
-  font-weight: 500;
-  letter-spacing: .13em;
-}
-.profile-index-label { color: var(--color-cyan-glow); }
-
 .profile-intro { max-width: 52rem; }
 .profile-intro h1 {
   margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);

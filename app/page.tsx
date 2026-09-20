@@ -1,7 +1,12 @@
+import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
+import { navItems } from "@/lib/navigation";
 import { HeroVideo } from "./hero-video";
 
 export default function Home() {
+  const homeIndex = navItems.findIndex((item) => item.href === "/") + 1;
+  const nextItem = navItems.find((item) => item.href !== "/");
+
   return (
     <main className="archive-shell">
       <div className="archive-grid" aria-hidden="true" />
@@ -12,7 +17,7 @@ export default function Home() {
         <HeroVideo />
 
         <div className="hero-index" aria-label="Current section: Home">
-          <span>01</span><span className="index-line" /><span>HOME</span>
+          <span>{String(homeIndex).padStart(2, "0")}</span><span className="index-line" /><span>HOME</span>
         </div>
 
         <div className="hero-content">
@@ -24,8 +29,12 @@ export default function Home() {
         </div>
 
         <div className="hero-footer">
-          <p className="page-count"><span>01</span> / 05</p>
-          <a className="explore-link" href="#top">EXPLORE <span aria-hidden="true">&darr;</span></a>
+          <p className="page-count"><span>{String(homeIndex).padStart(2, "0")}</span> / {String(navItems.length).padStart(2, "0")}</p>
+          {nextItem && (
+            <Link className="explore-link" href={nextItem.href}>
+              EXPLORE <span aria-hidden="true">&darr;</span>
+            </Link>
+          )}
         </div>
       </section>
     </main>

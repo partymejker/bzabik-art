@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { ProfileTimeline } from "@/components/ProfileTimeline";
 import { CapabilitiesGrid } from "@/components/CapabilitiesGrid";
 import { capabilityGroups, cvPdfUrl, languages, profileIntro, timeline } from "@/lib/profile";
+import { navItems } from "@/lib/navigation";
 import "./profile.css";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function ProfilePage() {
   const workEntries = timeline.filter((entry) => entry.type === "work");
   const educationEntries = timeline.filter((entry) => entry.type === "education");
+  const profileIndex = navItems.findIndex((item) => item.href === "/profile") + 1;
 
   return (
     <main className="archive-shell">
@@ -21,8 +23,8 @@ export default function ProfilePage() {
       <SiteHeader />
 
       <section className="profile-hero" aria-labelledby="profile-title">
-        <div className="profile-index" aria-hidden="true">
-          <span className="index-line" /><span className="profile-index-label">PROFILE</span>
+        <div className="hero-index" aria-label="Current section: Profile">
+          <span>{String(profileIndex).padStart(2, "0")}</span><span className="index-line" /><span>PROFILE</span>
         </div>
         <div className="profile-intro">
           <p className="eyebrow">CAREER ARCHIVE</p>
