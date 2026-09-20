@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
+import { FeaturedWork } from "@/components/FeaturedWork";
 import { navItems } from "@/lib/navigation";
+import { projects } from "@/lib/projects";
 import { HeroVideo } from "./hero-video";
+import "./home.css";
 
 export default function Home() {
   const homeIndex = navItems.findIndex((item) => item.href === "/") + 1;
   const nextItem = navItems.find((item) => item.href !== "/");
+  const featuredProjects = projects.filter((project) => project.featured);
 
   return (
     <main className="archive-shell">
@@ -37,6 +41,21 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {featuredProjects.length > 0 && (
+        <section className="featured-work" aria-labelledby="featured-heading">
+          <div className="featured-work-header">
+            <div>
+              <p className="eyebrow">SELECTED WORK</p>
+              <h2 id="featured-heading">Recent Projects</h2>
+            </div>
+            <Link className="view-all-link" href="/work">
+              VIEW ALL <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+          <FeaturedWork projects={featuredProjects} />
+        </section>
+      )}
     </main>
   );
 }

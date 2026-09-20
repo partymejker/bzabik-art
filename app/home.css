@@ -1,0 +1,91 @@
+@layer home;
+
+@layer home {
+.featured-work {
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 5rem) clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--line-subtle);
+}
+
+.featured-work-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.featured-work-header h2 {
+  margin: .6rem 0 0;
+  max-width: none;
+  font-family: var(--font-space-grotesk), Arial, sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--color-text-primary);
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  transition: color 180ms ease;
+}
+.view-all-link span { color: var(--color-cyan-glow); transition: transform 180ms ease; }
+.view-all-link:hover, .view-all-link:focus-visible { color: var(--color-cyan-glow); }
+.view-all-link:hover span, .view-all-link:focus-visible span { transform: translateX(.25rem); }
+
+.featured-work-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1px;
+  background: var(--line-subtle);
+  border: 1px solid var(--line-subtle);
+}
+
+.featured-card {
+  display: block;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--color-background);
+  transition: background-color 180ms ease;
+}
+.featured-card:hover, .featured-card:focus-visible { background: var(--color-background-secondary); }
+
+.featured-card-index {
+  margin: 0 0 1.5rem;
+  color: var(--color-cyan-glow);
+  font-size: .8125rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+}
+
+.featured-card-title {
+  margin: 0;
+  font-family: var(--font-space-grotesk), Arial, sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 500;
+  letter-spacing: -.01em;
+  line-height: 1.2;
+}
+
+.featured-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: .9rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+}
