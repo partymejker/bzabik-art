@@ -48,6 +48,26 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
         {project.client && <p className="project-client">{project.client}</p>}
       </section>
 
+      <section className="project-intro" aria-label="Project overview">
+        <Reveal className="project-intro-reveal">
+          <div className="project-description">
+            <h2 className="section-heading">About</h2>
+            <p>{project.description}</p>
+
+            {project.responsibilities && project.responsibilities.length > 0 && (
+              <>
+                <h2 className="section-heading project-responsibilities-heading">Responsibilities</h2>
+                <ul className="project-responsibilities">
+                  {project.responsibilities.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        </Reveal>
+      </section>
+
       {project.media && project.media.length > 0 && (
         <section className="project-media-section" aria-label="Project media">
           <Reveal className="project-media-reveal">
@@ -58,14 +78,9 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
         </section>
       )}
 
-      <section className="project-details" aria-label="Project details">
-        <Reveal className="project-details-reveal">
-          <div className="project-description">
-            <h2 className="section-heading">About</h2>
-            <p>{project.description}</p>
-          </div>
-
-          <div className="project-meta-columns">
+      {((project.credits && project.credits.length > 0) || (project.tools && project.tools.length > 0)) && (
+        <section className="project-details" aria-label="Project details">
+          <Reveal className="project-meta-columns">
             {project.credits && project.credits.length > 0 && (
               <div>
                 <h2 className="section-heading">Credits</h2>
@@ -90,9 +105,9 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
                 </ul>
               </div>
             )}
-          </div>
-        </Reveal>
-      </section>
+          </Reveal>
+        </section>
+      )}
 
       <nav className="project-nav" aria-label="Other projects">
         {prevProject ? (

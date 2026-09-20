@@ -17,7 +17,6 @@ export function ModelViewer({ src, alt, poster }: { src: string; alt: string; po
       alt={alt}
       poster={poster}
       camera-controls
-      auto-rotate
       shadow-intensity="1"
       exposure="1"
       loading="lazy"

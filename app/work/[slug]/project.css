@@ -35,16 +35,27 @@
   color: var(--color-text-secondary);
 }
 
+.project-intro {
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 5rem) clamp(2.5rem, 5vw, 3.5rem);
+}
+
 .project-media-section {
   width: min(100%, 1600px);
   margin: clamp(1rem, 3vw, 2rem) auto 0;
-  padding: 0 clamp(1.5rem, 4vw, 5rem);
+  padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 5rem) 0;
+  border-top: 1px solid var(--line-subtle);
 }
 
 .project-media-reveal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 900px) {
+  .project-media-reveal { grid-template-columns: 1fr; }
 }
 
 .project-media {
@@ -78,17 +89,23 @@
 
 .project-media-image img { object-fit: cover; }
 
+.project-media-item {
+  margin: 0;
+  min-width: 0;
+}
+
+.project-media-caption {
+  margin: .75rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: .8125rem;
+  letter-spacing: .01em;
+}
+
 .project-details {
   width: min(100%, 1600px);
   margin: 0 auto;
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 5rem);
   border-top: 1px solid var(--line-subtle);
-}
-
-.project-details-reveal {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
 .section-heading {
@@ -106,7 +123,40 @@
   line-height: 1.7;
 }
 
+.project-responsibilities-heading {
+  margin-top: clamp(2rem, 4vw, 2.5rem);
+}
+
+.project-responsibilities {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+.project-responsibilities li {
+  position: relative;
+  padding-left: 1.25rem;
+  color: var(--color-text-secondary);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.project-responsibilities li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  background: var(--color-cyan-glow);
+  box-shadow: 0 0 .6rem rgb(0 194 255 / 60%);
+}
+
 .project-meta-columns {
+  max-width: 32rem;
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 4vw, 3rem);
@@ -174,10 +224,6 @@
   transition: color var(--motion-fast) var(--motion-ease);
 }
 .project-nav-link:hover .project-nav-title, .project-nav-link:focus-visible .project-nav-title { color: var(--color-cyan-glow); }
-
-@media (max-width: 800px) {
-  .project-details-reveal { grid-template-columns: 1fr; }
-}
 
 @media (max-width: 640px) {
   .project-hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }

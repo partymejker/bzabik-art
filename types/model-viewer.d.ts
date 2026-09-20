@@ -19,7 +19,9 @@ type ModelViewerAttributes = React.DetailedHTMLProps<React.HTMLAttributes<ModelV
   "disable-zoom"?: boolean;
   "interaction-prompt"?: "auto" | "when-focused" | "none";
   loading?: "auto" | "lazy" | "eager";
-  reveal?: "auto" | "interaction" | "manual";
+  // @google/model-viewer 4.3.1's RevealStrategy enum only implements "auto" at runtime
+  // (its own JSDoc still mentions "manual", but that value has no effect in this version).
+  reveal?: "auto";
 };
 
 declare global {

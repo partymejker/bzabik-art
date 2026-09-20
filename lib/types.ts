@@ -48,6 +48,7 @@ export interface Project {
   year: string;
   category: ProjectCategory[];
   description: string;
+  responsibilities?: string[];
   thumbnail?: string;
   media?: ProjectMediaItem[];
   credits?: ProjectCredit[];
