@@ -1,0 +1,39 @@
+@layer contact;
+
+@layer contact {
+.contact-hero {
+  position: relative;
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  min-height: calc(100svh - clamp(5rem, 9vw, 7.5rem));
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 5rem) clamp(4rem, 8vw, 7rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.contact-statement { max-width: 60rem; }
+
+.contact-statement h1 {
+  margin: clamp(1.2rem, 2.5vw, 2rem) 0 0;
+  max-width: none;
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: var(--font-space-grotesk), Arial, sans-serif;
+  font-size: clamp(1.8rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--color-text-primary);
+  word-break: break-word;
+  transition: color 180ms ease;
+}
+.contact-email:hover, .contact-email:focus-visible { color: var(--color-cyan-glow); }
+
+@media (max-width: 640px) {
+  .contact-email { font-size: clamp(1.5rem, 9vw, 2.5rem); }
+}
+}
