@@ -1,3 +1,5 @@
+import { HeroVideo } from "./hero-video";
+
 export default function Home() {
   return (
     <main className="archive-shell">
@@ -13,6 +15,8 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title">
+        <HeroVideo />
+
         <div className="hero-index" aria-label="Current section: Home">
           <span>01</span><span className="index-line" /><span>HOME</span>
         </div>
@@ -23,12 +27,6 @@ export default function Home() {
             <span>DIGITAL</span><span>CREATIVE</span><span className="hero-accent">ARCHIVE</span>
           </h1>
           <p className="discipline-line">FILM <b>&middot;</b> 3D <b>&middot;</b> ANIMATION <b>&middot;</b> AI</p>
-        </div>
-
-        <div className="hero-art" aria-hidden="true">
-          <div className="hero-art-orbit" />
-          <div className="hero-art-frame"><span>ARTWORK / 001</span></div>
-          <div className="hero-art-surface" />
         </div>
 
         <div className="hero-footer">

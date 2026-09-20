@@ -1,4 +1,4 @@
-/* ARTIFACT_001: an atmospheric placeholder for the final 3D artwork. */
+/* Atmospheric base for the video-led hero composition. */
 .archive-shell {
   background:
     radial-gradient(ellipse 45% 59% at 83% 76%, rgb(62 27 88 / 20%), transparent 72%),
@@ -24,6 +24,35 @@
   min-height: calc(100svh - clamp(5rem, 9vw, 7.5rem));
 }
 
+.hero-video-layer {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
+  pointer-events: none;
+}
+
+.hero-video-layer video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% center;
+  filter: brightness(.96) contrast(1.04) saturate(.86);
+}
+
+.hero::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(ellipse 58% 70% at 85% 76%, rgb(89 25 67 / 23%), transparent 72%),
+    linear-gradient(90deg, var(--color-background) 0%, rgb(5 7 13 / 91%) 26%, rgb(8 7 18 / 58%) 43%, rgb(18 10 26 / 20%) 65%, rgb(24 10 28 / 7%) 100%);
+  pointer-events: none;
+}
+
 .hero-index { position: relative; z-index: 3; }
 
 .hero-content {
@@ -39,87 +68,6 @@ h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
 .discipline-line { position: relative; z-index: 4; margin-top: clamp(2rem, 4vw, 4rem); }
 .discipline-line b { color: #6f77bc; }
 
-.hero-art {
-  position: absolute;
-  z-index: 3;
-  right: clamp(-16rem, -10vw, -4rem);
-  bottom: clamp(-15rem, -14vw, -6rem);
-  width: clamp(31rem, 56vw, 67rem);
-  aspect-ratio: 1 / .79;
-  transform: rotate(-9deg);
-  pointer-events: none;
-}
-
-.hero-art::before {
-  position: absolute;
-  z-index: -1;
-  inset: 10% -8% -8% -12%;
-  content: "";
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 52% 52%, rgb(97 45 143 / 28%), rgb(84 27 65 / 10%) 37%, transparent 70%);
-  filter: blur(2.6rem);
-}
-
-.hero-art-surface {
-  position: absolute;
-  inset: 8% 0 0 4%;
-  overflow: hidden;
-  border-radius: 58% 37% 61% 35% / 42% 57% 39% 63%;
-  background:
-    radial-gradient(ellipse 48% 61% at 61% 38%, rgb(100 63 138 / 34%), transparent 57%),
-    radial-gradient(ellipse 29% 45% at 74% 65%, rgb(117 34 74 / 20%), transparent 68%),
-    radial-gradient(ellipse 32% 37% at 35% 71%, rgb(5 8 18 / 68%), transparent 71%),
-    linear-gradient(124deg, rgb(25 18 38 / 50%), rgb(6 8 17 / 91%) 61%, rgb(44 16 36 / 55%));
-  box-shadow: inset 4rem 2rem 8rem rgb(0 0 0 / 45%), 0 0 7rem rgb(60 31 102 / 10%);
-}
-
-.hero-art-surface::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background:
-    radial-gradient(ellipse 45% 14% at 65% 19%, rgb(213 188 255 / 9%), transparent 72%),
-    linear-gradient(119deg, transparent 35%, rgb(186 157 232 / 6%) 49%, transparent 59%);
-}
-
-.hero-art-surface::after {
-  position: absolute;
-  inset: -22% -12% 22% 42%;
-  content: "";
-  border-radius: 48% 51% 60% 37% / 56% 42% 58% 45%;
-  background: rgb(4 6 13 / 66%);
-  transform: rotate(-17deg);
-}
-
-.hero-art-frame {
-  position: absolute;
-  z-index: 1;
-  inset: 2% 11% 12% 8%;
-  border: 1px solid rgb(215 213 255 / 6%);
-  transform: translate(-5%, -6%);
-}
-
-.hero-art-frame span {
-  position: absolute;
-  right: .8rem;
-  bottom: .7rem;
-  color: rgb(217 222 255 / 22%);
-  font-size: .56rem;
-  letter-spacing: .15em;
-}
-
-.hero-art-orbit {
-  position: absolute;
-  z-index: 2;
-  top: -8%;
-  left: 15%;
-  width: 68%;
-  height: 68%;
-  border: 1px solid rgb(116 113 196 / 6%);
-  border-radius: 50%;
-  transform: rotate(34deg) scaleX(1.5);
-}
-
 .hero-footer {
   position: absolute;
   z-index: 5;
@@ -132,13 +80,19 @@ h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
 
 @media (max-width: 800px) {
   .hero-content { width: 100%; padding-top: clamp(5.5rem, 14vh, 8rem); }
-  .hero-art { right: -15rem; bottom: -6rem; width: clamp(30rem, 115vw, 50rem); opacity: .82; }
 }
 
 @media (max-width: 640px) {
   .hero { min-height: calc(100svh - 5rem); }
   .hero-content { padding-top: clamp(4.5rem, 12vh, 6.5rem); }
   h1 { font-size: clamp(3.75rem, 17vw, 6rem); }
-  .hero-art { right: -12rem; bottom: -5rem; width: 37rem; transform: rotate(-12deg); }
-  .hero-art-frame { inset: 4% 13% 14% 9%; }
+  .hero::after {
+    background:
+      radial-gradient(ellipse 75% 54% at 88% 78%, rgb(89 25 67 / 20%), transparent 74%),
+      linear-gradient(90deg, var(--color-background) 0%, rgb(5 7 13 / 82%) 35%, rgb(12 8 20 / 34%) 68%, rgb(24 10 28 / 10%) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-layer { display: none; }
 }
