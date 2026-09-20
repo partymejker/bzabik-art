@@ -227,7 +227,6 @@
   color: var(--color-text-secondary);
 }
 .work-row-meta dd { margin: 0; font-size: .8125rem; color: var(--color-text-primary); }
-.work-row-meta > div:nth-child(2) dd { color: var(--color-electric-blue); }
 
 .work-row-description {
   margin: 1rem 0 0;

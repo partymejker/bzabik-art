@@ -4,13 +4,12 @@ import type { Project } from "./types";
 // exact per-project years/order to be confirmed and refined.
 export const projects: Project[] = [
   {
-    slug: "cornelsen-experimenta",
-    title: "Cornelsen Experimenta",
-    client: "Cornelsen",
+    slug: "educational-interactive-experience",
+    title: "Educational Interactive Experience",
     year: "2022–2025",
     category: ["interactive"],
     description:
-      "Adaptation of traditional educational materials into interactive digital lessons for Cornelsen Experimenta. The work combined content production, visual development, technical implementation and close attention to the accuracy of scientific and mathematical content.",
+      "Adaptation of traditional educational materials into interactive digital lessons. The work combined content production, visual development, technical implementation and close attention to the accuracy of scientific and mathematical content.",
     responsibilities: [
       "Designing and building interactive digital lessons",
       "Developing and implementing JavaScript scripts",
@@ -26,13 +25,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "unicef-mongolia-education",
-    title: "UNICEF & Mongolia Ministry of Education",
-    client: "UNICEF / Mongolia Ministry of Education and Science",
+    slug: "educational-multimedia-project",
+    title: "Educational Multimedia Project",
     year: "2022–2025",
     category: ["3d", "film"],
     description:
-      "As part of a wider digital education transformation project with UNICEF and the Ministry of Education and Science of Mongolia, work focused on preparing visual and multimedia assets for interactive digital learning materials.",
+      "As part of a wider digital education transformation initiative, work focused on preparing visual and multimedia assets for interactive digital learning materials.",
     responsibilities: [
       "Designing, modelling and editing 3D visual assets",
       "Editing and adapting video materials",
@@ -47,13 +45,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "bcu-mielec",
-    title: "BCU Mielec",
-    client: "Branżowe Centrum Umiejętności, Mielec",
+    slug: "technical-3d-visualization",
+    title: "Technical 3D Visualization",
     year: "2022–2025",
     category: ["3d", "animation", "film"],
     description:
-      "Creation and adaptation of digital educational resources for Branżowe Centrum Umiejętności in Mielec, combining graphic design, 3D modelling, animation and video editing.",
+      "Creation and adaptation of digital educational resources for a vocational training center, combining graphic design, 3D modelling, animation and video editing.",
     responsibilities: [
       "Designing and editing raster and vector graphics",
       "Modelling 3D objects",
@@ -80,9 +77,8 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "kursy-splitting",
-    title: "Kursy Splitting",
-    client: "Kursy Splitting",
+    slug: "interactive-learning-project",
+    title: "Interactive Learning Project",
     year: "2022–2025",
     category: ["3d", "animation"],
     description:

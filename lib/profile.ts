@@ -19,22 +19,22 @@ export const timeline: TimelineEntry[] = [
       "Editing and producing interactive digital learning content for international EdTech clients — spanning JavaScript-driven interactivity, 3D and graphic production, video editing and LaTeX-based STEM formatting.",
     highlights: [
       {
-        title: "Cornelsen Experimenta — Interactive Textbook Adaptation",
+        title: "Educational Interactive Experience — Interactive Textbook Adaptation",
         description:
           "Built interactive digital lessons from traditional textbooks from the ground up, wrote and implemented custom JavaScript for advanced interactivity, adapted graphics and formatted complex mathematical/scientific formulas in LaTeX, and oversaw the project's overall visual quality in direct collaboration with the client.",
       },
       {
-        title: "UNICEF & Mongolia Ministry of Education — Digital Education Transformation",
+        title: "Educational Multimedia Project — Digital Education Transformation",
         description:
           "Designed, modeled and edited 3D visual assets for interactive digital materials, edited and adapted video content to technical specifications, and worked closely with content editors and subject-matter experts to translate learning goals into engaging multimedia.",
       },
       {
-        title: "BCU Mielec — Digital Learning Resources & Multimedia",
+        title: "Technical 3D Visualization — Digital Learning Resources & Multimedia",
         description:
           "Produced and edited raster/vector graphics, modeled 3D objects and created 2D/3D animation for e-learning platforms, collaborating with education experts to turn raw scripts into engaging visual assets.",
       },
       {
-        title: "Kursy Splitting — Integrated Learning Platforms",
+        title: "Interactive Learning Project — Integrated Learning Platforms",
         description:
           "Worked in a multidisciplinary team with content designers, graphic artists, developers and UX/UI specialists; optimized and adapted 3D models for interactive projects and produced animation and video materials; collaborated with CSS developers on visual consistency and responsiveness.",
       },
