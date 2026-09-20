@@ -40,6 +40,7 @@ export const projects: Project[] = [
     credits: [{ role: "Multimedia Specialist", name: "Bartłomiej Żabik" }],
     tools: ["Blender", "Adobe Photoshop", "DaVinci Resolve"],
     tags: ["EdTech", "3D", "Animation"],
+    media: [{ type: "embed", src: "https://youtu.be/_wjEu8NO1z8", alt: "BCU Mielec — 2D/3D animation sample" }],
     featured: true,
   },
   {
