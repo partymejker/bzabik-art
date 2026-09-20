@@ -18,13 +18,10 @@ export function HeroVideo() {
   if (!canPlayMotion) return null;
 
   return (
-    <>
-      <div className="hero-video-layer" aria-hidden="true">
-        <video autoPlay loop muted playsInline preload="metadata">
-          <source src="/videos/timeline-4.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div className="hero-video-edge" aria-hidden="true" />
-    </>
+    <div className="hero-video-layer" aria-hidden="true">
+      <video autoPlay loop muted playsInline preload="metadata">
+        <source src="/videos/timeline-4.mp4" type="video/mp4" />
+      </video>
+    </div>
   );
 }
