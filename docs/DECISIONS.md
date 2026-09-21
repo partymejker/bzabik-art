@@ -1,6 +1,6 @@
 # DECISIONS
 
-Current as of 2026-09-22 · commit `4a89597`.
+Current as of 2026-09-22 · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
 
 Only decisions supported by the repository or explicit owner instruction. Dates use commit dates when the decision landed in git. Owner-confirmed items without a commit use the project phase.
 
@@ -68,15 +68,23 @@ Only decisions supported by the repository or explicit owner instruction. Dates 
 - **Decision:** Homepage hero is video-led (`/videos/timeline-4.mp4`). Do not redesign the hero without explicit approval.
 - **Reason:** Owner restriction for this project. Implementation: `app/hero-video.tsx`, `app/hero.css`.
 - **Status:** CONFIRMED · IMPLEMENTED
-- **Impact:** Agents may fix regressions in the existing treatment. They may not restyle or rewrite the hero as part of unrelated work. The Stage 1 left-inset spacing fix below is a separate, approved exception.
+- **Impact:** Agents may fix regressions in the existing treatment. They may not restyle or rewrite the hero as part of unrelated work. The Stage 1 Hero copy column below is a separate, approved exception. `.hero-footer` alignment is not included.
 
-## Hero typography left inset is approved for Stage 1
+## Hero copy shares the page content column
 
-- **Date / phase:** Stage 0.5 review (2026-09-22), approved for Stage 1
-- **Decision:** Add a consistent responsive left padding/inset to the entire Hero typography block (eyebrow, main heading, category text). Preserve the current asymmetric composition and type scale. Prevent overflow and clipping. Check 320px, 375px, 390px, 768px, and 1440px.
-- **Reason:** Owner review of Stage 0.5 docs. The typography currently sits too close to the left viewport edge.
-- **Status:** APPROVED FOR STAGE 1 · not implemented
-- **Impact:** Stage 1 may implement this spacing fix only. It is not a hero redesign, not present in CSS yet, and does not approve other hero or layout changes.
+- **Date / phase:** Stage 1 · 2026-09-22 (approved in Stage 0.5 as a left-inset fix; implemented as a shared column wrapper)
+- **Decision:** Wrap `.hero-index` and `.hero-content` in `.hero-copy`. Use the existing page column: `width: min(100%, 1600px)`, `margin-inline: auto`, `padding-inline: clamp(1.5rem, 4vw, 5rem)`. Keep `.hero-index` as a sibling of `.hero-content`. Keep the inner type measure, video background, and asymmetric composition. Do not nest the index inside `.hero-content`.
+- **Reason:** Padding only `.hero-content` with the gutter left `.hero-index` on the viewport edge and missed the centered 1600px offset, so Hero did not line up with Work. The wrapper is the same mechanism as `.work-section-header`.
+- **Status:** CONFIRMED · IMPLEMENTED
+- **Impact:** `app/page.tsx` and `app/hero.css`. This is not a hero redesign. It does not change `.hero-footer`, copy, video, or other sections. Checked at 320px, 375px, 390px, 768px, 1440px, and 1920px with no overflow.
+
+## Hero footer stays outside the column wrapper
+
+- **Date / phase:** Stage 1 · 2026-09-22 (owner instruction during the alignment correction)
+- **Decision:** Leave `.hero-footer` outside `.hero-copy`. Do not “fix” its horizontal inset as part of Stage 1.
+- **Reason:** Stage 1 scope is the typography cluster (index + heading + discipline) lining up with Work. The footer still uses `left/right: clamp(1.5rem, 4vw, 5rem)` on the full-bleed hero.
+- **Status:** CONFIRMED · out of Stage 1 scope · PROPOSED as later work
+- **Impact:** Above 1600px, `01 / 05` can sit left of `.hero-copy` and Work. Do not expand Stage 1 to include the footer unless the owner asks.
 
 ## Final favicon comes from the owner
 

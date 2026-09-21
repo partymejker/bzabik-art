@@ -12,7 +12,7 @@ Use this workflow on every BZABIK.ART task. The documentation in `docs/` is the 
 4. **Check recent commits.** `git log --oneline -10`
 5. **Read only files relevant to the task.** Use paths from the docs. Do not dump the entire tree.
 6. **Identify assumptions and uncertainties.** Label them. If the docs say `NEEDS_VERIFICATION` or `PENDING`, do not silently resolve them.
-7. **Work within the approved scope.** If the request would redesign the hero, change identity, touch Vercel/DNS, or implement unapproved Stage 1 ideas, stop and ask. The Hero typography left inset is the only Stage 1 item currently APPROVED; it is not yet implemented.
+7. **Work within the approved scope.** If the request would redesign the hero, change identity, touch Vercel/DNS, or implement unapproved Stage 1 ideas, stop and ask. The Stage 1 Hero copy alignment (`.hero-copy`) is IMPLEMENTED. `.hero-footer` alignment is out of that scope. Further Stage 1 items remain PROPOSED until approved.
 
 If documentation and code disagree, trust the code, record the contradiction, and update the docs as part of the task when the change is in scope.
 
@@ -41,7 +41,7 @@ Do not commit. Do not push. Wait for explicit owner approval.
 - Do not treat proposed features as implemented.
 - Do not claim to have verified Vercel settings without access.
 - Do not change DNS, domain redirects, or Vercel project settings unless asked.
-- Do not implement Cloudflare R2, a custom video player, or media migration unless that is the approved task. The only approved Stage 1 item is the Hero typography left inset; do not treat it as already coded.
+- Do not implement Cloudflare R2, a custom video player, or media migration unless that is the approved task. Do not expand Stage 1 to `.hero-footer` or other unapproved layout work unless the owner asks.
 - Do not redesign the hero or change the favicon design.
 - Do not invent client names, a live CV PDF, or a contact form.
 - Do not repeat a full audit unless documentation is missing, outdated, or contradictory.

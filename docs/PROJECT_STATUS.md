@@ -1,6 +1,6 @@
 # PROJECT STATUS
 
-Current as of 2026-09-22 · branch `main` · commit `4a89597`.
+Current as of 2026-09-22 · branch `main` · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
 
 ## Status labels
 
@@ -19,9 +19,9 @@ Current as of 2026-09-22 · branch `main` · commit `4a89597`.
 
 ## Current phase
 
-**Stage 0.5 — Project documentation and AI agent handoff system.**
+**Stage 1 — Hero copy alignment with the page content column.**
 
-Stage 0 (stability) is committed on `main` as `4a89597`. Stage 1 implementation has not started.
+Stage 0 is committed as `4a89597`. Stage 0.5 docs are committed as `3e3b8cc`. The approved Stage 1 Hero alignment item is IMPLEMENTED in `app/page.tsx` and `app/hero.css`. Remaining Stage 1 ideas stay PROPOSED.
 
 ## Stage map
 
@@ -29,8 +29,8 @@ Stage 0 (stability) is committed on `main` as `4a89597`. Stage 1 implementation 
 | --- | --- | --- |
 | Historical build (Etap 1–11, earlier “Stage 0/1” commits) | Site assembled as continuous archive | IMPLEMENTED (historical) |
 | Stage 0 | Stability: contact, fonts, favicon files, metadata, Reveal | IMPLEMENTED (`4a89597`, 2026-09-22) |
-| Stage 0.5 | Shared documentation for agents | IMPLEMENTED (this `docs/` set) |
-| Stage 1 | Next implementation phase | PLANNED · one item APPROVED, remainder PROPOSED |
+| Stage 0.5 | Shared documentation for agents | IMPLEMENTED (`3e3b8cc`, 2026-09-22) |
+| Stage 1 | Hero copy alignment with the page column | IMPLEMENTED · remainder PROPOSED |
 
 Git history also contains older commits named “Stage 0” (`2d6dc7b`) and “Stage 1” (`7428fea`). Those are historical build steps. They are not the current Stage 0 / Stage 1 program.
 
@@ -64,29 +64,30 @@ From commit `4a89597` and the preceding continuous-archive commit `ba6713b`:
 | Handoff template | IMPLEMENTED in this phase |
 | Documentation commit | AUTHORIZED for this Stage 0.5 docs commit |
 
-## Planned Stage 1 work
+## Completed Stage 1 work
 
-Stage 1 is **PLANNED**. Implementation has not started.
+Hero copy alignment with the existing page content column. Owner-accepted after viewport QA.
 
-### Approved for Stage 1
+| Item | Status | Source |
+| --- | --- | --- |
+| Shared `.hero-copy` wrapper | IMPLEMENTED | `app/page.tsx`, `app/hero.css` |
+| Page column `width: min(100%, 1600px)` + `margin-inline: auto` | IMPLEMENTED | `.hero-copy`, same mechanism as `.work-section-header` |
+| Gutter `padding-inline: clamp(1.5rem, 4vw, 5rem)` | IMPLEMENTED | `.hero-copy` |
+| `.hero-index` and `.hero-content` share that column | IMPLEMENTED | siblings inside `.hero-copy` |
+| Asymmetric type measure `width: min(71rem, 86%)` on `.hero-content` | IMPLEMENTED | unchanged inner measure |
+| Full-bleed hero video | IMPLEMENTED | `.hero` / `HeroVideo` unchanged |
+| `.hero-footer` alignment with the 1600px column | out of scope | still `left/right: clamp(1.5rem, 4vw, 5rem)` only |
 
-| Item | Status |
-| --- | --- |
-| Hero typography left inset | APPROVED FOR STAGE 1 · not implemented |
+An earlier attempt padded only `.hero-content`. That missed `.hero-index` and the centered 1600px offset, so it did not match Work. The wrapper is the correction.
 
-Current issue: the Hero typography block (`.hero-content`: eyebrow, main heading, category/discipline line) sits too close to the left viewport edge and lacks a consistent horizontal inset.
+Validation (this Stage 1 session):
 
-Required change (not yet coded):
+- `npm run lint` — clean
+- `npm run build` — success, TypeScript OK
+- Viewports `320px`, `375px`, `390px`, `768px`, `1440px`, `1920px`: left edges of `01 HOME`, the Hero heading, `WORK ARCHIVE`, and the wordmark match; no horizontal overflow; no text clipping
+- At `1920px`, `.hero-copy` is a centered 1600px column (`margin-left: 152.5px` + gutter `76.8px` → content at `229.3px`)
 
-- Add a consistent responsive left padding/inset to the entire Hero typography block.
-- Apply that inset to the eyebrow, main heading, and category text together.
-- Preserve the current asymmetric composition and typography scale.
-- Avoid an unrelated hero redesign.
-- Prevent horizontal overflow and text clipping.
-
-Required viewport checks after implementation: `320px`, `375px`, `390px`, `768px`, `1440px`.
-
-This is a targeted spacing fix. It is not a hero redesign and it is not present in CSS yet.
+`.hero-footer` (`01 / 05`) was deliberately left outside `.hero-copy`. Above 1600px it follows only the gutter, so it sits left of the Work column. That remaining mismatch is future work. It is not part of this Stage 1 item.
 
 ### Still PROPOSED (not Stage 1 unless later approved)
 
@@ -111,13 +112,14 @@ Those media items remain **PROPOSED** future infrastructure. They are not implem
 - About practice statement
 - Mailto contact
 - Reduced-motion handling for hero video and reveals
+- Hero copy (`.hero-index` + `.hero-content`) aligned to the page column via `.hero-copy`
 
 ## Open tasks
 
 | Item | Status |
 | --- | --- |
-| Implement approved Stage 1 Hero typography left inset | APPROVED · not implemented |
-| Remaining Stage 1 scope beyond the hero inset | PENDING |
+| `.hero-footer` alignment with the 1600px column (above 1600px) | PROPOSED · out of Stage 1 scope |
+| Remaining Stage 1 scope beyond the Hero copy alignment | PENDING |
 | Final favicon by owner | PENDING |
 | INTER Polska naming confirmation | PENDING |
 | Media for `educational-interactive-experience` and `educational-multimedia-project` | OPEN |
@@ -128,7 +130,7 @@ Those media items remain **PROPOSED** future infrastructure. They are not implem
 
 ## Known blockers
 
-- Stage 1 implementation has not started. The hero typography left inset is the only approved Stage 1 item.
+- Stage 1 Hero copy alignment is implemented. `.hero-footer` still uses the gutter-only inset and can diverge above 1600px.
 - Final identity mark is waiting on the owner.
 - Two of four Work rows have no published media (`WorkIndexVisual` falls back to a category glyph).
 - Hero video `public/videos/timeline-4.mp4` is about 11.2 MB.
@@ -138,9 +140,10 @@ Those media items remain **PROPOSED** future infrastructure. They are not implem
 Listed in [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md). Immediate ones:
 
 - Favicon visual direction
-- Further Stage 1 items beyond the approved hero typography inset
+- Further Stage 1 items beyond the implemented Hero copy alignment
+- `.hero-footer` alignment with the 1600px column
 - INTER Polska spelling
-- Hero redesign or copy change (the left-inset spacing fix is already approved)
+- Hero redesign or copy change
 
 ## Deployment and domain status
 
@@ -161,4 +164,4 @@ Do not change Vercel settings or DNS from an agent session unless the owner asks
 
 ## Last known build
 
-Prior Stage 0 work reported a clean TypeScript check and a successful `next build`. This documentation session did not re-run `next build` or `tsc`. Treat current build health as **NEEDS_VERIFICATION** before Stage 1.
+Stage 1 validation ran `npm run lint` (clean) and `npm run build` (success, TypeScript OK, 13 routes generated). Treat live Vercel production HTML as **NEEDS_VERIFICATION** until this Stage 1 commit is pushed and deployed.

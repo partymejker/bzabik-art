@@ -1,6 +1,6 @@
 # DESIGN SYSTEM
 
-Current as of 2026-09-22 · commit `4a89597`.
+Current as of 2026-09-22 · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
 
 Documented here: existing CSS and approved visual rules. New design ideas are marked PROPOSED. This file is not a redesign brief.
 
@@ -84,7 +84,7 @@ Clamp-based spacing throughout. Typical vertical padding on sections: `clamp(3.5
 
 Body `min-width: 320px`. `scrollbar-gutter: stable`. `overflow-x: clip` on the shell.
 
-Header, Work, About, Profile, Contact, and project pages use horizontal padding `clamp(1.5rem, 4vw, 5rem)`. The homepage hero footer uses that same inline inset. The Hero typography block (`.hero-content`) currently does not share a matching left inset. That gap is a known issue; the approved Stage 1 fix is below and is **not implemented**.
+Header, Work, About, Profile, Contact, project pages, and Hero copy (`.hero-copy`) share the page column: `width: min(100%, 1600px)`, `margin-inline: auto`, `padding-inline: clamp(1.5rem, 4vw, 5rem)`. `.hero-copy` wraps `.hero-index` and `.hero-content`. `.hero-content` keeps its inner measure `width: min(71rem, 86%)`. The homepage `.hero-footer` still uses only `left/right: clamp(1.5rem, 4vw, 5rem)` and is outside that column.
 
 ## Responsive behavior
 
@@ -143,7 +143,7 @@ Limitations:
 
 ## Current design limitations
 
-- Hero typography block sits too close to the left viewport edge (see Stage 1 item below)
+- `.hero-footer` can sit left of the 1600px page column on viewports wider than 1600px (out of Stage 1 scope; PROPOSED later work)
 - Geometric B favicon is a Stage 0 stand-in; owner will supply the final mark
 - Two Work rows use a glyph fallback because those projects have no media
 - Leftover unused page-hero CSS: `.work-hero`, `.about-hero`, `.contact-hero`, `.profile-hero`, `.profile-footer`
@@ -151,28 +151,21 @@ Limitations:
 - Cyan glow on menu trigger and list bullets exists; keep it controlled
 - No light theme
 
-## Approved for Stage 1 — Hero typography left inset
+## Stage 1 — Hero copy column
 
-**Status:** APPROVED FOR STAGE 1 · not implemented
+**Status:** IMPLEMENTED · owner-accepted
 
-Do not treat this as current CSS. The hero is unchanged in the application.
+`.hero-copy` is the Hero cluster container (`.hero-index` + `.hero-content`). It uses the same column and gutter as `.work-section-header`. Video stays full-bleed. Type scale and inner `86%` / `71rem` measure stay on `.hero-content`.
 
-**Issue:** `.hero-content` (eyebrow, `h1`, `.discipline-line`) lacks a consistent horizontal left inset, so the heading and supporting text sit too close to the left viewport edge.
+**Out of scope:** `.hero-footer`. Above 1600px it can use a different alignment line than `.hero-copy`. Footer alignment is PROPOSED later work.
 
-**Required change:**
-
-- Add a consistent responsive left padding/inset to the entire Hero typography block.
-- Apply the inset to the eyebrow, main heading, and category text together.
-- Preserve the current asymmetric composition and typography scale.
-- Avoid an unrelated hero redesign.
-- Prevent horizontal overflow and text clipping.
-
-**Required checks after implementation:** 320px, 375px, 390px, 768px, 1440px.
+**Checks recorded:** 320px, 375px, 390px, 768px, 1440px, 1920px — no horizontal overflow.
 
 ## PROPOSED (not approved)
 
 - New identity mark / favicon beyond the current geometric B
-- Hero redesign (the left-inset spacing fix above is approved; a broader hero restyle is not)
+- Hero redesign (the Stage 1 column wrapper is implemented; a broader hero restyle is not)
+- Aligning `.hero-footer` to the 1600px page column
 - Author name near the hero
 - Replacing glyph fallbacks with lead media
 - Custom HTML5 video player chrome

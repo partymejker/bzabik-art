@@ -25,22 +25,24 @@ export default function Home() {
       <section className="hero" id="top" aria-labelledby="hero-title">
         <HeroVideo />
 
-        <div className="hero-index" aria-label="Current section: Home">
-          <span>{String(homeIndex).padStart(2, "0")}</span>
-          <span className="index-line" />
-          <span>HOME</span>
-        </div>
+        <div className="hero-copy">
+          <div className="hero-index" aria-label="Current section: Home">
+            <span>{String(homeIndex).padStart(2, "0")}</span>
+            <span className="index-line" />
+            <span>HOME</span>
+          </div>
 
-        <div className="hero-content">
-          <p className="eyebrow">AN INDEPENDENT VISUAL PRACTICE</p>
-          <h1 id="hero-title">
-            <span>DIGITAL</span>
-            <span>CREATIVE</span>
-            <span className="hero-accent">ARCHIVE</span>
-          </h1>
-          <p className="discipline-line">
-            FILM <b>&middot;</b> 3D <b>&middot;</b> ANIMATION <b>&middot;</b> AI
-          </p>
+          <div className="hero-content">
+            <p className="eyebrow">AN INDEPENDENT VISUAL PRACTICE</p>
+            <h1 id="hero-title">
+              <span>DIGITAL</span>
+              <span>CREATIVE</span>
+              <span className="hero-accent">ARCHIVE</span>
+            </h1>
+            <p className="discipline-line">
+              FILM <b>&middot;</b> 3D <b>&middot;</b> ANIMATION <b>&middot;</b> AI
+            </p>
+          </div>
         </div>
 
         <div className="hero-footer">

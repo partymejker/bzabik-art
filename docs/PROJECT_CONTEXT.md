@@ -1,6 +1,6 @@
 # PROJECT CONTEXT
 
-Current as of 2026-09-22 · branch `main` · commit `4a89597`.
+Current as of 2026-09-22 · branch `main` · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
 
 This is the shared orientation document for BZABIK.ART. Read it before architecture, design, or content work.
 
@@ -83,7 +83,8 @@ See [DECISIONS.md](./DECISIONS.md) for reasons and impact. Summary:
 | CV PDF link stays inactive (`cvPdfUrl: null`) | CONFIRMED · IMPLEMENTED |
 | Contact email is `contact@bzabik.art` | CONFIRMED · IMPLEMENTED |
 | Hero uses a video background | CONFIRMED · IMPLEMENTED |
-| Hero typography left inset (Stage 1 spacing fix) | APPROVED FOR STAGE 1 · not implemented |
+| Hero copy shares the page column (`.hero-copy`) | CONFIRMED · IMPLEMENTED |
+| `.hero-footer` stays outside that column | CONFIRMED · out of Stage 1 scope |
 | Final favicon will be created later by the owner | CONFIRMED |
 | Continuous one-page portfolio with overlay menu | CONFIRMED · IMPLEMENTED |
 | No contact form | CONFIRMED · IMPLEMENTED |
@@ -93,7 +94,7 @@ See [DECISIONS.md](./DECISIONS.md) for reasons and impact. Summary:
 Do not:
 
 - Redesign the website, hero, Work Index, overlay menu, or project-page layout without explicit approval.
-- Implement Stage 1, media migration, Cloudflare R2, or a custom video player unless that work is the approved task.
+- Implement remaining Stage 1 ideas, media migration, Cloudflare R2, or a custom video player unless that work is the approved task. Do not treat `.hero-footer` alignment as in scope unless asked.
 - Change Vercel settings, DNS, or domain redirects unless asked.
 - Change the favicon design.
 - Activate a CV PDF or invent a live-looking placeholder.
@@ -105,9 +106,10 @@ Do not:
 ## Things requiring user approval
 
 - Any layout-affecting visual change
-- Hero redesign or hero copy change (the Stage 1 left-inset spacing fix is already approved)
+- Hero redesign or hero copy change
 - Favicon / identity mark
-- Further Stage 1 items beyond the approved hero inset
+- Further Stage 1 items beyond the implemented Hero copy alignment
+- `.hero-footer` alignment with the 1600px column
 - Git commit and git push
 - Vercel, DNS, and host-redirect changes
 - Activating `cvPdfUrl`

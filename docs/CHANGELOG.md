@@ -2,9 +2,26 @@
 
 High-level project history. Not a dump of every CSS tweak. Future work is listed as planned only.
 
-Current HEAD at documentation time: `4a89597` on `main` (2026-09-22).
+Current as of 2026-09-22 on `main`. Parent HEAD before Stage 1: `3e3b8cc`.
 
 ---
+
+## Stage 1 — Hero copy alignment (2026-09-22)
+
+**Status:** IMPLEMENTED · owner-accepted after viewport QA.
+
+Homepage Hero typography now shares the page content column used by Work, About, Profile, Contact, and the header wordmark.
+
+- Added `.hero-copy` around `.hero-index` and `.hero-content` (`app/page.tsx`)
+- `.hero-copy` uses `width: min(100%, 1600px)`, `margin-inline: auto`, and `padding-inline: clamp(1.5rem, 4vw, 5rem)` (`app/hero.css`)
+- `.hero-index` stays a sibling of `.hero-content` inside that wrapper
+- Inner type measure `width: min(71rem, 86%)` on `.hero-content` is unchanged
+- Hero video stays full-bleed
+- `.hero-footer` is **out of this correction**. Above 1600px it can sit on a different alignment line than `.hero-copy`. Treat footer alignment as future work.
+
+Validation: `npm run lint` clean; `npm run build` success. Checked `320px`, `375px`, `390px`, `768px`, `1440px`, `1920px` with no horizontal overflow.
+
+An earlier Stage 1 attempt padded only `.hero-content`. That did not align `.hero-index` or pick up the centered 1600px offset.
 
 ## Stage 0.5 — Documentation system (2026-09-22)
 
@@ -54,13 +71,11 @@ Summarized. Many of these commits used “Etap” / “Stage” names that are *
 
 ## Planned
 
-**Stage 1** — PLANNED. Implementation has not started.
-
-Approved for Stage 1 (not implemented):
-
-- Hero typography left inset on `.hero-content` (eyebrow, heading, category text)
+**Stage 1 Hero copy alignment** — IMPLEMENTED (see above).
 
 PROPOSED candidates (not approved, not done):
+
+- `.hero-footer` alignment with the 1600px page column (out of Stage 1 scope)
 
 - Evidence-first Work Index / media for empty projects
 - Authored titles

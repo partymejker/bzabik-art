@@ -140,4 +140,4 @@ The following are **not implemented**. Do not describe them as current architect
 | Local posters for models | PROPOSED | Field exists; no assets |
 | Lead media on every Work row | PROPOSED | Related to empty-media projects |
 
-Any of these may become later work. They are **PROPOSED**, not approved Stage 1 items. The only approved Stage 1 item is the Hero typography left inset (see [PROJECT_STATUS.md](./PROJECT_STATUS.md) and [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)). Do not start R2, a custom media domain, or a custom player without a later approval.
+Any of these may become later work. They are **PROPOSED**. The Stage 1 Hero copy alignment is IMPLEMENTED (see [PROJECT_STATUS.md](./PROJECT_STATUS.md) and [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)). Do not start R2, a custom media domain, or a custom player without a later approval.

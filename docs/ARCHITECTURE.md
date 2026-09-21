@@ -1,6 +1,6 @@
 # ARCHITECTURE
 
-Current as of 2026-09-22 · commit `4a89597`.
+Current as of 2026-09-22 · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
 
 This describes the architecture that exists in the repository. It does not describe planned systems.
 
@@ -70,6 +70,7 @@ There is no `middleware.ts`, `sitemap.ts`, `robots.ts`, or `app/api/`.
 
 - `SiteHeader` — wordmark + menu trigger
 - `HeroVideo` — muted looping MP4, skipped when `prefers-reduced-motion`
+- `.hero-copy` — page-column wrapper for `.hero-index` and `.hero-content` (`app/hero.css`). `.hero-footer` stays outside that wrapper.
 - `WorkSection` — archive index
 - `AboutSection` — practice statement
 - `ProfileSection` — CV-like archive
