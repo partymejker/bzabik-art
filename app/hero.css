@@ -22,7 +22,8 @@
 .hero {
   position: relative;
   display: block;
-  min-height: calc(100svh - clamp(5rem, 9vw, 7.5rem));
+  min-height: 100svh;
+  padding-top: clamp(5rem, 9vw, 7.5rem);
 }
 
 .hero-video-layer {
@@ -61,7 +62,7 @@
   position: relative;
   z-index: 2;
   width: min(71rem, 86%);
-  padding: clamp(7rem, 13vh, 10rem) 0 0;
+  padding: clamp(2rem, 5vh, 4.5rem) 0 0;
 }
 
 h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
@@ -85,8 +86,8 @@ h1 { max-width: none; font-size: clamp(4.3rem, 9vw, 9.5rem); }
 }
 
 @media (max-width: 640px) {
-  .hero { min-height: calc(100svh - 5rem); }
-  .hero-content { padding-top: clamp(4.5rem, 12vh, 6.5rem); }
+  .hero { min-height: 100svh; padding-top: 5rem; }
+  .hero-content { padding-top: clamp(1.5rem, 4vh, 2.5rem); }
   h1 { font-size: clamp(3.75rem, 17vw, 6rem); }
   .hero::after {
     background:

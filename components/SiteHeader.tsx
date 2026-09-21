@@ -19,12 +19,12 @@ export function SiteHeader() {
 
   function close() {
     setIsOpen(false);
-    triggerRef.current?.focus();
+    triggerRef.current?.focus({ preventScroll: true });
   }
 
   return (
     <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="BZABIK.ART home">
+      <Link className="wordmark" href="/#top" aria-label="BZABIK.ART home">
         BZABIK<span>.ART</span>
       </Link>
       <button

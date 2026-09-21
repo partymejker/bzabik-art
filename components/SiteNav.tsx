@@ -14,7 +14,7 @@ export function SiteNav({ id, isOpen, onClose }: { id: string; isOpen: boolean; 
     const panel = panelRef.current;
     if (!panel) return;
 
-    panel.querySelector<HTMLElement>(FOCUSABLE_SELECTOR)?.focus();
+    panel.querySelector<HTMLElement>(FOCUSABLE_SELECTOR)?.focus({ preventScroll: true });
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {

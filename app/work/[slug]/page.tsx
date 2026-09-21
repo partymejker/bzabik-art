@@ -118,7 +118,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
         ) : (
           <span />
         )}
-        <Link className="explore-link" href="/work">
+        <Link className="explore-link" href="/#work">
           Back to Work
         </Link>
         {nextProject ? (
