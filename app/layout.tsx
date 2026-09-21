@@ -8,14 +8,52 @@ import "./about/about.css";
 import "./profile/profile.css";
 import "./contact/contact.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"], display: "swap" });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const siteTitle = "BZABIK.ART — Digital Creative Archive";
+const siteDescription =
+  "Portfolio and digital archive of film, 3D, animation and creative technology by Bartłomiej Żabik.";
 
 export const metadata: Metadata = {
-  title: "BZABIK.ART — Digital Creative Archive",
-  description: "Film, 3D, animation and AI experiments by BZABIK.ART.",
+  metadataBase: new URL("https://bzabik.art"),
+  title: siteTitle,
+  description: siteDescription,
+  applicationName: "BZABIK.ART",
+  authors: [{ name: "Bartłomiej Żabik" }],
+  creator: "Bartłomiej Żabik",
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "BZABIK.ART",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  return <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}><body>{children}</body></html>;
+  return (
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+      <body>
+        <noscript>
+          <style>{`[data-reveal="hidden"]{opacity:1;transform:none}`}</style>
+        </noscript>
+        {children}
+      </body>
+    </html>
+  );
 }

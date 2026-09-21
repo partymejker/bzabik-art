@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { WorkSection } from "@/components/sections/WorkSection";
@@ -6,6 +7,10 @@ import { ProfileSection } from "@/components/sections/ProfileSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { navItems } from "@/lib/navigation";
 import { HeroVideo } from "./hero-video";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   const homeIndex = 1;

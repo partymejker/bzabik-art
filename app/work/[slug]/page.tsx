@@ -16,9 +16,24 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
 
+  const title = `${project.title} — BZABIK.ART`;
+
   return {
-    title: `${project.title} — BZABIK.ART`,
+    title,
     description: project.description,
+    alternates: { canonical: `/work/${project.slug}` },
+    openGraph: {
+      type: "article",
+      url: `/work/${project.slug}`,
+      siteName: "BZABIK.ART",
+      title,
+      description: project.description,
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description: project.description,
+    },
   };
 }
 
