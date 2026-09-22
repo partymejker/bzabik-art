@@ -69,10 +69,28 @@ export const projects: Project[] = [
       { type: "model", src: "/3d_models/czesc_konstrukcyjna.glb", alt: "Construction part — 3D model" },
       { type: "model", src: "/3d_models/bezwzgledny_uklad_wspolrzednych.glb", alt: "Absolute coordinate system — 3D model" },
       { type: "model", src: "/3d_models/uklad_wspolrzednych.glb", alt: "Coordinate system — 3D model" },
-      { type: "embed", src: "https://youtu.be/fgZ5QOJ1C_c", alt: "Introduction to discrete event process simulation" },
-      { type: "embed", src: "https://youtu.be/KKFF6BRSvuU", alt: "Sheet metal animation" },
+      {
+        type: "video",
+        src: mediaUrl("videos/discrete-process-simulation.mp4"),
+        poster: mediaUrl("posters/discrete-process-simulation.jpg"),
+        alt: "Introduction to discrete event process simulation",
+        // Previous YouTube source: https://youtu.be/fgZ5QOJ1C_c
+      },
+      {
+        type: "video",
+        src: mediaUrl("videos/sheet-metal-bending.mp4"),
+        poster: mediaUrl("posters/sheet-metal-bending.jpg"),
+        alt: "Sheet metal bending",
+        // Previous YouTube source: https://youtu.be/KKFF6BRSvuU
+      },
       { type: "embed", src: "https://youtu.be/eeAIVHdYm6I", alt: "Equipment operation" },
-      { type: "embed", src: "https://youtu.be/0tg6MCobhPE", alt: "Welding station" },
+      {
+        type: "video",
+        src: mediaUrl("videos/robotic-welding-cell.mp4"),
+        poster: mediaUrl("posters/robotic-welding-cell.jpg"),
+        alt: "Robotic welding cell",
+        // Previous YouTube source: https://youtu.be/0tg6MCobhPE
+      },
       { type: "embed", src: "https://youtu.be/GLoj51YZklg", alt: "Program interface" },
     ],
     featured: true,
