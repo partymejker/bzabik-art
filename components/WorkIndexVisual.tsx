@@ -17,6 +17,14 @@ export function resolveRowVisual(project: Project): RowVisual {
     return { kind: "model", src: model.src, alt: model.alt ?? `${project.title} — 3D model` };
   }
 
+  const video = media.find((item) => item.type === "video");
+  if (video) {
+    if (video.poster) {
+      return { kind: "thumbnail", src: video.poster, alt: video.alt ?? project.title };
+    }
+    return { kind: "glyph" };
+  }
+
   for (const item of media) {
     if (item.type !== "embed") continue;
     const thumbnail = getYouTubeThumbnailUrl(item.src);

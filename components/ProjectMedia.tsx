@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { ProjectMediaItem } from "@/lib/types";
 import { getYouTubeEmbedUrl } from "@/lib/youtube";
 import { ModelViewer } from "./ModelViewer";
+import { VideoPlayer } from "./VideoPlayer";
 
 export function ProjectMedia({ item }: { item: ProjectMediaItem }) {
   if (item.type === "embed") {
@@ -26,8 +27,8 @@ export function ProjectMedia({ item }: { item: ProjectMediaItem }) {
   if (item.type === "video") {
     return (
       <figure className="project-media-item">
-        <div className="project-media">
-          <video src={item.src} poster={item.poster} controls playsInline preload="metadata" aria-label={item.alt} />
+        <div className="project-media project-media-video">
+          <VideoPlayer src={item.src} poster={item.poster} alt={item.alt} />
         </div>
         {item.alt && <figcaption className="project-media-caption">{item.alt}</figcaption>}
       </figure>

@@ -1,3 +1,4 @@
+import { mediaUrl } from "./media";
 import type { Project } from "./types";
 
 // Year is a placeholder range covering the Learnetic S.A. tenure (2022-present) —
@@ -95,7 +96,13 @@ export const projects: Project[] = [
     tools: ["Blender", "CSS"],
     tags: ["EdTech", "3D", "Interactive"],
     media: [
-      { type: "embed", src: "https://youtu.be/KNrZtIrSe7Y", alt: "Mercury Volume" },
+      {
+        type: "video",
+        src: mediaUrl("videos/mercury-volume.mp4"),
+        poster: mediaUrl("posters/mercury-volume.jpg"),
+        alt: "Mercury Volume video",
+        // Previous YouTube source: https://youtu.be/KNrZtIrSe7Y
+      },
       { type: "embed", src: "https://youtu.be/tEE6ZY_G-68", alt: "Formulas of Compounds" },
     ],
     featured: true,
