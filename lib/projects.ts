@@ -103,7 +103,13 @@ export const projects: Project[] = [
         alt: "Mercury Volume video",
         // Previous YouTube source: https://youtu.be/KNrZtIrSe7Y
       },
-      { type: "embed", src: "https://youtu.be/tEE6ZY_G-68", alt: "Formulas of Compounds" },
+      {
+        type: "video",
+        src: mediaUrl("videos/formulas-of-compounds.mp4"),
+        poster: mediaUrl("posters/formulas-of-compounds.jpg"),
+        alt: "Formulas of Compounds",
+        // Previous YouTube source: https://youtu.be/tEE6ZY_G-68
+      },
     ],
     featured: true,
   },
