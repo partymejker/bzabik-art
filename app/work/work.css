@@ -84,7 +84,7 @@
 .work-list {
   width: min(100%, 1600px);
   margin: 0 auto;
-  padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 5rem) clamp(4rem, 8vw, 7rem);
+  padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 5rem) clamp(2.5rem, 5vw, 4rem);
 }
 .work-list ol { list-style: none; margin: 0; padding: 0; }
 .work-list li { border-top: 1px solid var(--line-subtle); }

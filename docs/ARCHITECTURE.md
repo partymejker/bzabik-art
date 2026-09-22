@@ -1,6 +1,6 @@
 # ARCHITECTURE
 
-Current as of 2026-09-22 · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
+Current as of 2026-09-22 · Stage 2 project template IMPLEMENTED in the working tree. Parent HEAD `09b1955`.
 
 This describes the architecture that exists in the repository. It does not describe planned systems.
 
@@ -96,9 +96,10 @@ There is no `middleware.ts`, `sitemap.ts`, `robots.ts`, or `app/api/`.
 
 | Component | Role |
 | --- | --- |
-| `app/work/[slug]/page.tsx` | Title, about, responsibilities, media, credits, tools, prev/next |
+| `app/work/[slug]/page.tsx` | Title + optional lead media, about, remaining media, credits, tools, prev/next |
+| `components/PageCount.tsx` | Shared `NN / 05` site-section index |
 | `components/ProjectMedia.tsx` | image / video / YouTube embed / model |
-| `components/ModelViewer.tsx` | Dynamic import of `@google/model-viewer` |
+| `components/ModelViewer.tsx` | Dynamic import of `@google/model-viewer`; quiet placeholder until the library is ready |
 
 ### Profile / about / contact
 

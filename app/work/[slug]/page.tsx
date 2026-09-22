@@ -5,7 +5,29 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { ProjectMedia } from "@/components/ProjectMedia";
 import { Reveal } from "@/components/Reveal";
 import { projects } from "@/lib/projects";
+import type { ProjectMediaItem } from "@/lib/types";
 import "./project.css";
+
+function resolveLeadMedia(media: ProjectMediaItem[] | undefined): ProjectMediaItem | null {
+  if (!media?.length) return null;
+  return (
+    media.find((item) => item.type === "model") ??
+    media.find((item) => item.type === "embed" || item.type === "video" || item.type === "image") ??
+    null
+  );
+}
+
+function isSameMedia(a: ProjectMediaItem, b: ProjectMediaItem) {
+  return a.type === b.type && a.src === b.src;
+}
+
+function partitionProjectMedia(media: ProjectMediaItem[] | undefined, exclude: ProjectMediaItem | null) {
+  const items = (media ?? []).filter((item) => !exclude || !isSameMedia(item, exclude));
+  return {
+    models: items.filter((item) => item.type === "model"),
+    playback: items.filter((item) => item.type !== "model"),
+  };
+}
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -46,50 +68,80 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
 
   const prevProject = projects.length > 1 ? projects[(index - 1 + projects.length) % projects.length] : null;
   const nextProject = projects.length > 1 ? projects[(index + 1) % projects.length] : null;
+  const lead = resolveLeadMedia(project.media);
+  const { models, playback } = partitionProjectMedia(project.media, lead);
+  const hasMedia = models.length > 0 || playback.length > 0;
 
   return (
     <main className="archive-shell">
       <div className="archive-grid" aria-hidden="true" />
       <SiteHeader />
 
-      <section className="project-hero" aria-labelledby="project-title">
-        <p className="project-count">
-          <span>{String(index + 1).padStart(2, "0")}</span> / {String(projects.length).padStart(2, "0")}
-        </p>
-        <p className="eyebrow">
-          {project.category.join(" · ").toUpperCase()} — {project.year}
-        </p>
-        <h1 id="project-title">{project.title}</h1>
-        {project.client && <p className="project-client">{project.client}</p>}
-      </section>
+      <section
+        className="project-hero"
+        aria-labelledby="project-title"
+        data-has-lead={lead ? "true" : "false"}
+      >
+        <div className="project-hero-head">
+          <p className="project-count">
+            <span>{String(index + 1).padStart(2, "0")}</span> / {String(projects.length).padStart(2, "0")}
+          </p>
+          <p className="eyebrow">
+            {project.category.join(" · ").toUpperCase()} — {project.year}
+          </p>
+          <h1 id="project-title">{project.title}</h1>
+          {project.client && <p className="project-client">{project.client}</p>}
+        </div>
 
-      <section className="project-intro" aria-label="Project overview">
-        <Reveal className="project-intro-reveal">
-          <div className="project-description">
-            <h2 className="section-heading">About</h2>
-            <p>{project.description}</p>
-
-            {project.responsibilities && project.responsibilities.length > 0 && (
-              <>
-                <h2 className="section-heading project-responsibilities-heading">Responsibilities</h2>
-                <ul className="project-responsibilities">
-                  {project.responsibilities.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </>
-            )}
+        {lead && (
+          <div className="project-hero-visual">
+            <ProjectMedia item={lead} />
           </div>
-        </Reveal>
+        )}
+
+        <div className="project-hero-body">
+          <Reveal className="project-intro-reveal">
+            <div className="project-description">
+              <h2 className="section-heading">About</h2>
+              <p>{project.description}</p>
+
+              {project.responsibilities && project.responsibilities.length > 0 && (
+                <>
+                  <h2 className="section-heading project-responsibilities-heading">Responsibilities</h2>
+                  <ul className="project-responsibilities">
+                    {project.responsibilities.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      {project.media && project.media.length > 0 && (
-        <section className="project-media-section" aria-label="Project media">
-          <Reveal className="project-media-reveal">
-            {project.media.map((item, mediaIndex) => (
-              <ProjectMedia key={`${item.type}-${mediaIndex}`} item={item} />
-            ))}
+      {hasMedia && (
+        <section className="project-media-section" aria-labelledby="project-media-heading">
+          <Reveal className="project-media-header">
+            <p className="eyebrow">Selected work</p>
+            <h2 id="project-media-heading" className="project-media-title">
+              Media
+            </h2>
           </Reveal>
+          {models.length > 0 && (
+            <Reveal className="project-media-grid project-media-grid--models">
+              {models.map((item, mediaIndex) => (
+                <ProjectMedia key={`${item.type}-${mediaIndex}`} item={item} />
+              ))}
+            </Reveal>
+          )}
+          {playback.length > 0 && (
+            <Reveal className="project-media-grid project-media-grid--playback">
+              {playback.map((item, mediaIndex) => (
+                <ProjectMedia key={`${item.type}-${mediaIndex}`} item={item} />
+              ))}
+            </Reveal>
+          )}
         </section>
       )}
 

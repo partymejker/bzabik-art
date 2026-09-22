@@ -1,7 +1,9 @@
 import { ProfileTimeline } from "@/components/ProfileTimeline";
 import { CapabilitiesGrid } from "@/components/CapabilitiesGrid";
 import { Reveal } from "@/components/Reveal";
+import { PageCount } from "@/components/PageCount";
 import { capabilityGroups, cvPdfUrl, languages, profileIntro, timeline } from "@/lib/profile";
+import { sectionNumber } from "@/lib/navigation";
 
 export function ProfileSection() {
   const workEntries = timeline.filter((entry) => entry.type === "work");
@@ -70,6 +72,10 @@ export function ProfileSection() {
             ))}
           </ul>
         </Reveal>
+      </div>
+
+      <div className="section-index-footer">
+        <PageCount current={sectionNumber("/#profile")} />
       </div>
     </section>
   );

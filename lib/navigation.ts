@@ -10,3 +10,10 @@ export const navItems: NavItem[] = [
   { label: "Profile", href: "/#profile" },
   { label: "Contact", href: "/#contact" },
 ];
+
+export const navTotal = navItems.length;
+
+export function sectionNumber(href: string): number {
+  const index = navItems.findIndex((item) => item.href === href);
+  return index >= 0 ? index + 1 : 0;
+}

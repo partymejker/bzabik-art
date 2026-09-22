@@ -1,4 +1,6 @@
 import { Reveal } from "@/components/Reveal";
+import { PageCount } from "@/components/PageCount";
+import { sectionNumber } from "@/lib/navigation";
 
 export function AboutSection() {
   return (
@@ -20,6 +22,10 @@ export function AboutSection() {
           </p>
         </div>
       </Reveal>
+
+      <div className="section-index-footer">
+        <PageCount current={sectionNumber("/#about")} />
+      </div>
     </section>
   );
 }

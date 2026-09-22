@@ -1,7 +1,9 @@
 import { WorkIndexRow } from "@/components/WorkIndexRow";
 import { Reveal } from "@/components/Reveal";
+import { PageCount } from "@/components/PageCount";
 import { projects } from "@/lib/projects";
 import { CATEGORY_LABELS, countCategories } from "@/lib/categories";
+import { sectionNumber } from "@/lib/navigation";
 
 export function WorkSection() {
   const disciplines = countCategories(projects);
@@ -52,6 +54,9 @@ export function WorkSection() {
             </li>
           ))}
         </ol>
+        <div className="section-index-footer">
+          <PageCount current={sectionNumber("/#work")} />
+        </div>
       </div>
     </section>
   );

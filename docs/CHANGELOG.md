@@ -2,9 +2,35 @@
 
 High-level project history. Not a dump of every CSS tweak. Future work is listed as planned only.
 
-Current as of 2026-09-22 on `main`. Parent HEAD before Stage 1: `3e3b8cc`.
+Current as of 2026-09-22 on `main`. HEAD `09b1955` (Stage 1). Stage 2 template work is in the working tree, pending commit.
 
 ---
+
+## Stage 2 follow-up — numbering + lead media (2026-09-22)
+
+**Status:** IMPLEMENTED in the working tree · visual review PENDING. No commit.
+
+- Site section index `NN / 05` appears in the footer of Home, Work, About, Profile, and Contact (`PageCount`). Overlay menu numbering is unchanged. Project pages do not show `NN / 05`.
+- Home `.hero-footer` uses the 1600px page column so `01 / 05` lines up with the other footers.
+- Project pages keep only the archive index `NN / 04` in the hero.
+- Project hero is a two-column cluster when media exists: copy left, one lead asset right (first 3D model, else first film/video/image via `ProjectMedia`). Remaining items stay in Media. No `lib/projects.ts` change.
+
+## Stage 2 — Project page template (2026-09-22)
+
+**Status:** IMPLEMENTED in the working tree · owner visual review PENDING. Point 9 (section order About vs Media) is out of this pass.
+
+Shared `/work/[slug]` template, using the complete 3D + film case study as the reference:
+
+- Hero padding clears the fixed header; project sections use `scroll-margin-top`
+- `.project-hero .eyebrow` no longer inherits homepage hero margin
+- Media section has a visible kicker and heading (`Selected work` / `Media`)
+- UI groups `model` items before film/image/video without changing `lib/projects.ts`
+- Model frames are 4:3; film/video/image stay 16:9; an odd last item in a 2-column group spans and is capped at `54rem`
+- `ModelViewer` shows a quiet placeholder until the library is ready (also used on Work Index)
+- Responsibility bullets keep the cyan dot without the glow shadow
+- Credits and Tools sit in the same 2-column measure as the media grid
+
+Validation: `npm run lint` clean; `npm run build` success (13 routes). Checked `320px`, `390px`, `768px`, `1440px`, `1920px` plus a no-media project route and the Work Index 3D row.
 
 ## Stage 1 — Hero copy alignment (2026-09-22)
 

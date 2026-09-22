@@ -5,7 +5,8 @@ import { WorkSection } from "@/components/sections/WorkSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ProfileSection } from "@/components/sections/ProfileSection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { navItems } from "@/lib/navigation";
+import { navItems, sectionNumber } from "@/lib/navigation";
+import { PageCount } from "@/components/PageCount";
 import { HeroVideo } from "./hero-video";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const homeIndex = 1;
+  const homeIndex = sectionNumber("/#top");
   const totalSections = navItems.length;
 
   return (
@@ -46,9 +47,7 @@ export default function Home() {
         </div>
 
         <div className="hero-footer">
-          <p className="page-count">
-            <span>{String(homeIndex).padStart(2, "0")}</span> / {String(totalSections).padStart(2, "0")}
-          </p>
+          <PageCount current={homeIndex} total={totalSections} />
           <Link className="explore-link" href="/#work">
             EXPLORE <span aria-hidden="true">&darr;</span>
           </Link>

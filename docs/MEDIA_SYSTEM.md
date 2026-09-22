@@ -1,6 +1,6 @@
 # MEDIA SYSTEM
 
-Current as of 2026-09-22 · commit `4a89597`.
+Current as of 2026-09-22 · Stage 2 project template in the working tree. Parent HEAD `09b1955`.
 
 This documents how media works today. Future hosting and player work is marked PROPOSED or PLANNED and is not implemented.
 
@@ -59,7 +59,7 @@ No project currently uses `type: "video"`. Film on project pages is YouTube `emb
 - Native `<video poster>`
 - `<model-viewer poster>`
 
-No project media item sets `poster`. Model viewers therefore have no still while the GLB loads. YouTube rows use the platform thumbnail instead of a local poster.
+No project media item sets `poster`. YouTube rows use the platform thumbnail. `ModelViewer` shows a quiet radial placeholder until `@google/model-viewer` has loaded; it does not invent a still of the GLB.
 
 ## Existing media components
 
@@ -67,7 +67,7 @@ No project media item sets `poster`. Model viewers therefore have no still while
 | --- | --- |
 | `app/hero-video.tsx` | Homepage background MP4 |
 | `components/ProjectMedia.tsx` | Switch on `image` / `video` / `embed` / `model` |
-| `components/ModelViewer.tsx` | Client-only dynamic `import("@google/model-viewer")` |
+| `components/ModelViewer.tsx` | Client-only dynamic `import("@google/model-viewer")` with a quiet placeholder until ready |
 | `components/WorkIndexVisual.tsx` | Work row preview: first model, else YouTube `hqdefault`, else glyph |
 | `lib/youtube.ts` | Parse youtu.be / youtube.com, nocookie embed URL, thumbnail URL |
 
@@ -82,8 +82,11 @@ YouTube embeds:
 
 - Four GLBs on `technical-3d-visualization` only
 - `camera-controls`, `shadow-intensity="1"`, `exposure="1"`, `loading="lazy"`, `reveal="auto"`
+- Project-page model frames are 4:3; Work Index model frames were already 4:3
 - Work Index model preview is `inert` (visual only)
 - Types: `types/model-viewer.d.ts`
+
+Project-page grouping (UI only, `lib/projects.ts` order unchanged): the first `model`, else the first embed/video/image, is the hero lead. Remaining items stay in Media (`model` group then playback). Pages without media have no lead and omit the Media section. No local posters exist; film lead is the existing YouTube embed.
 
 Images:
 

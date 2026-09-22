@@ -1,6 +1,6 @@
 # PROJECT CONTEXT
 
-Current as of 2026-09-22 · branch `main` · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
+Current as of 2026-09-22 · branch `main` · Stage 2 project template IMPLEMENTED in the working tree. Parent HEAD `09b1955`.
 
 This is the shared orientation document for BZABIK.ART. Read it before architecture, design, or content work.
 

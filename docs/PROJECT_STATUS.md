@@ -1,6 +1,6 @@
 # PROJECT STATUS
 
-Current as of 2026-09-22 · branch `main` · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
+Current as of 2026-09-22 · branch `main` · Stage 2 project template IMPLEMENTED in the working tree (visual review PENDING). Parent HEAD `09b1955`.
 
 ## Status labels
 
@@ -19,9 +19,11 @@ Current as of 2026-09-22 · branch `main` · Stage 1 Hero alignment IMPLEMENTED.
 
 ## Current phase
 
-**Stage 1 — Hero copy alignment with the page content column.**
+**Stage 2 — Project page template, plus numbering and lead media.**
 
-Stage 0 is committed as `4a89597`. Stage 0.5 docs are committed as `3e3b8cc`. The approved Stage 1 Hero alignment item is IMPLEMENTED in `app/page.tsx` and `app/hero.css`. Remaining Stage 1 ideas stay PROPOSED.
+Code is in the working tree. Owner visual review is PENDING. Point 9 (moving Media above or beside About) stays out of this pass.
+
+Stage 1 Hero copy alignment remains IMPLEMENTED (`09b1955`). Remaining Stage 1 ideas stay PROPOSED.
 
 ## Stage map
 
@@ -30,7 +32,8 @@ Stage 0 is committed as `4a89597`. Stage 0.5 docs are committed as `3e3b8cc`. Th
 | Historical build (Etap 1–11, earlier “Stage 0/1” commits) | Site assembled as continuous archive | IMPLEMENTED (historical) |
 | Stage 0 | Stability: contact, fonts, favicon files, metadata, Reveal | IMPLEMENTED (`4a89597`, 2026-09-22) |
 | Stage 0.5 | Shared documentation for agents | IMPLEMENTED (`3e3b8cc`, 2026-09-22) |
-| Stage 1 | Hero copy alignment with the page column | IMPLEMENTED · remainder PROPOSED |
+| Stage 1 | Hero copy alignment with the page column | IMPLEMENTED (`09b1955`) · remainder PROPOSED |
+| Stage 2 | One project-page template as the case-study pattern | IMPLEMENTED in working tree · visual review PENDING |
 
 Git history also contains older commits named “Stage 0” (`2d6dc7b`) and “Stage 1” (`7428fea`). Those are historical build steps. They are not the current Stage 0 / Stage 1 program.
 
@@ -113,12 +116,15 @@ Those media items remain **PROPOSED** future infrastructure. They are not implem
 - Mailto contact
 - Reduced-motion handling for hero video and reveals
 - Hero copy (`.hero-index` + `.hero-content`) aligned to the page column via `.hero-copy`
+- Project page template: header offset, media heading, 3D-then-film grouping, 4:3 model frames, ModelViewer placeholder, quieter bullets, Credits/Tools on the media grid measure
 
 ## Open tasks
 
 | Item | Status |
 | --- | --- |
-| `.hero-footer` alignment with the 1600px column (above 1600px) | PROPOSED · out of Stage 1 scope |
+| Stage 2 owner visual review | PENDING |
+| Stage 2 point 9 — reorder About vs Media | PROPOSED · out of current pass |
+| `.hero-footer` alignment with the 1600px column (above 1600px) | IMPLEMENTED in working tree (with `NN / 05` footers) |
 | Remaining Stage 1 scope beyond the Hero copy alignment | PENDING |
 | Final favicon by owner | PENDING |
 | INTER Polska naming confirmation | PENDING |

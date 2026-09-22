@@ -1,6 +1,6 @@
 # DESIGN SYSTEM
 
-Current as of 2026-09-22 · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
+Current as of 2026-09-22 · Stage 2 project template IMPLEMENTED in the working tree. Parent HEAD `09b1955`.
 
 Documented here: existing CSS and approved visual rules. New design ideas are marked PROPOSED. This file is not a redesign brief.
 
@@ -63,7 +63,7 @@ Hero accent word uses a pale tint (`#e7e6ff` in `hero.css`) with a very low-opac
 
 - Shell: `.archive-shell` with a faint column grid (`.archive-grid`) and radial atmosphere.
 - Content width: `min(100%, 1600px)` with horizontal padding `clamp(1.5rem, 4vw, 5rem)`.
-- Header is fixed; sections use `scroll-margin-top` so hashes clear the header.
+- Header is fixed; homepage `.portfolio-section` and project-page sections use `scroll-margin-top` so content clears the header.
 - Numbered section indexes (`01` Home through `05` Contact).
 - Rules (`border-top` with `--line-subtle`) separate sections.
 
@@ -92,7 +92,7 @@ Breakpoints in CSS:
 
 | Width | Behavior |
 | --- | --- |
-| `900px` | Work rows stack visual under body; project media grid becomes one column |
+| `900px` | Work rows stack visual under body; project media grid and Credits/Tools become one column |
 | `800px` | Hero content full width |
 | `640px` | Single-column Work rows, tighter type, stacked footer and project nav, contact email wrap (`word-break: break-word`) |
 
@@ -137,7 +137,7 @@ IMPLEMENTED:
 
 Limitations:
 
-- Color contrast of secondary text (`#94a3b8` on `#05070d`) is not independently audited here (**NEEDS_VERIFICATION**)
+- Color contrast of secondary text (`#94a3b8` on `#05070d`) is about 7.8:1 (AA for body text); not a full-site audit
 - Work row whole-card hover is visual; the actual control is the title link
 - No skip-to-content link
 
@@ -148,7 +148,7 @@ Limitations:
 - Two Work rows use a glyph fallback because those projects have no media
 - Leftover unused page-hero CSS: `.work-hero`, `.about-hero`, `.contact-hero`, `.profile-hero`, `.profile-footer`
 - `FeaturedWork` has no CSS in the current cascade
-- Cyan glow on menu trigger and list bullets exists; keep it controlled
+- Cyan glow on the menu trigger exists; keep it controlled. Project responsibility bullets use the cyan dot without a glow shadow.
 - No light theme
 
 ## Stage 1 — Hero copy column
@@ -161,12 +161,25 @@ Limitations:
 
 **Checks recorded:** 320px, 375px, 390px, 768px, 1440px, 1920px — no horizontal overflow.
 
+## Stage 2 — Project page template
+
+**Status:** IMPLEMENTED in the working tree · owner visual review PENDING
+
+Shared `/work/[slug]` layout, not a one-off page. Hero padding is `header height + cluster gap` so `03 / 04` clears the fixed header. `.project-hero .eyebrow` uses the flex gap only. Media is a labelled section; models render at 4:3, film at 16:9; groups stay 2-column above 900px, with an odd last item spanning and capped at `54rem`. Credits and Tools share that 2-column measure.
+
+Point 9 (About vs Media order) is out of this pass.
+
+Site section index `NN / 05` uses `.page-count` in Home, Work, About, Profile, and Contact footers. Overlay menu keeps its own `01–05` link indexes. Project pages use only the archive index in the hero.
+
+When a project has media, the project hero is two columns above 900px (copy left, one lead asset right) and stacks on small screens: title, lead, about.
+
 ## PROPOSED (not approved)
 
 - New identity mark / favicon beyond the current geometric B
 - Hero redesign (the Stage 1 column wrapper is implemented; a broader hero restyle is not)
-- Aligning `.hero-footer` to the 1600px page column
+- Aligning `.hero-footer` to the 1600px page column — done in Stage 2 follow-up with the shared `NN / 05` footer
 - Author name near the hero
 - Replacing glyph fallbacks with lead media
 - Custom HTML5 video player chrome
-- Uneven / modular project-page media layouts beyond the current 2-column grid
+- Uneven / modular project-page media layouts beyond the current 2-column grid (4:3 models vs 16:9 film is already in the template)
+- Reordering project About vs Media (Stage 2 point 9)

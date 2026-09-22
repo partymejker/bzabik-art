@@ -83,6 +83,22 @@
     line-height: 1.6;
   }
 
+  .section-index-footer {
+    width: min(100%, 1600px);
+    margin-inline: auto;
+    padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.5rem, 4vw, 5rem) clamp(2rem, 4vw, 3.5rem);
+    display: flex;
+    align-items: center;
+  }
+
+  .work-list > .section-index-footer,
+  .about-section > .section-index-footer {
+    width: auto;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-bottom: 0;
+  }
+
   /* ---- Footer ---- */
   .portfolio-footer {
     width: min(100%, 1600px);

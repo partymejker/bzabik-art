@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { contactEmail } from "@/lib/contact";
 import { Reveal } from "@/components/Reveal";
+import { PageCount } from "@/components/PageCount";
+import { sectionNumber } from "@/lib/navigation";
 
 export function ContactSection() {
   return (
@@ -26,6 +28,7 @@ export function ContactSection() {
       </Reveal>
 
       <footer className="portfolio-footer">
+        <PageCount current={sectionNumber("/#contact")} />
         <p className="footer-brand">
           BZABIK<span>.ART</span> &middot; DIGITAL CREATIVE ARCHIVE
         </p>

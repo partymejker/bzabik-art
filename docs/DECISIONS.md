@@ -1,6 +1,6 @@
 # DECISIONS
 
-Current as of 2026-09-22 · Stage 1 Hero alignment IMPLEMENTED. Parent HEAD `3e3b8cc`.
+Current as of 2026-09-22 · Stage 2 project template IMPLEMENTED in the working tree. Parent HEAD `09b1955`.
 
 Only decisions supported by the repository or explicit owner instruction. Dates use commit dates when the decision landed in git. Owner-confirmed items without a commit use the project phase.
 
@@ -117,3 +117,27 @@ Only decisions supported by the repository or explicit owner instruction. Dates 
 - **Reason:** Implemented with the continuous-archive move.
 - **Status:** IMPLEMENTED
 - **Impact:** Changing these to non-permanent is PROPOSED, not done. Do not “fix” the dual redirects unless asked.
+
+## Project pages share one template; Stage 2 refines that template
+
+- **Date / phase:** Stage 2 · 2026-09-22 (owner-approved points 1–8)
+- **Decision:** Polish the shared `/work/[slug]` template as the case-study pattern. Group 3D models before film in the UI. Keep `lib/projects.ts` data order and copy unchanged. Do not reorder About vs Media yet (point 9).
+- **Reason:** One complete project page is the reference; four routes use the same template, including entries with no media.
+- **Status:** IMPLEMENTED in the working tree · visual review PENDING
+- **Impact:** `app/work/[slug]/page.tsx`, `project.css`, `components/ModelViewer.tsx`, shared placeholder styles in `app/globals.css`. Home, Hero, Work Index layout, and media hosting stay as they are.
+
+## Site section index lives in footers, not in the overlay
+
+- **Date / phase:** Stage 2 follow-up · 2026-09-22
+- **Decision:** Reuse `.page-count` (`NN / 05`) at the bottom of Home, Work, About, Profile, and Contact. Overlay menu keeps `01 Home` … `05 Contact` only. Project pages show only the archive index `NN / 04` in the hero — not `02 / 05` in the footer. Home `.hero-footer` shares the 1600px column so the count lines up.
+- **Reason:** `01 / 05` existed only on the hero. The owner asked for the same index on main pages, then removed it from project pages because a case study already has an archive index and a second counter added noise.
+- **Status:** IMPLEMENTED in the working tree · visual review PENDING
+- **Impact:** `components/PageCount.tsx`, section footers, `app/hero.css` footer column.
+
+## Project hero lead is the first model or first film
+
+- **Date / phase:** Stage 2 follow-up · 2026-09-22
+- **Decision:** If a project has media, show one lead asset beside the title/about cluster. Prefer the first 3D model; otherwise the first embed/video/image. Render it with `ProjectMedia`. Do not duplicate it in the Media section. Do not invent posters or change `lib/projects.ts`.
+- **Reason:** The intro column left a large empty right side. The lead is evidence, not filler.
+- **Status:** IMPLEMENTED in the working tree · visual review PENDING
+- **Impact:** `app/work/[slug]/page.tsx` and `project.css` only. Point 9 (About vs Media order) stays untouched.
